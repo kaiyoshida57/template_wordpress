@@ -1,0 +1,49 @@
+{
+  "name": "kai555_wp.git",
+  "version": "1.0.0",
+  "description": "WordPress site",
+  "main": "index.js",
+  "dependencies": {
+    "css-mqpacker": "^7.0.0",
+    "del": "^6.0.0",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-notify": "^4.0.0",
+    "gulp-postcss": "^9.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-svgo": "^9.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-changed": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-progeny": "^0.4.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svgmin": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpeg-recompress": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "jshint": "^2.13.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaiyoshida57/kai555_wp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaiyoshida57/kai555_wp/issues"
+  },
+  "homepage": "https://github.com/kaiyoshida57/kai555_wp#readme"
+}
