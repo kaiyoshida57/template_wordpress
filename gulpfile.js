@@ -70,11 +70,7 @@ return gulp.src(srcPath.img)
           quality: 80
         }),
         imageminPngquant(),
-        imageminSvgo({
-          plugins: [{
-            removeViewbox: false
-          }]
-        })
+        imageminSvgo(),
       ], {
         verbose: true
       }
