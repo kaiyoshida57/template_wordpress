@@ -1,0 +1,30 @@
+// Header,Footerなどのサイト共通の構造的Module
+
+/* 共通ヘッダー */
+.st-Header {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 50px;
+  }
+}
+
+/* フッター */
+.st-footer {
+  background-color: #eee;
+  color: #000;
+  text-align: center;
+}
+.st-footer_Inner {
+  padding: 48px 12px;
+  @media screen and (max-width: 768px) {
+    padding: 40px 8px;
+  }
+}

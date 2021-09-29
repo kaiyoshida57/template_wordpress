@@ -1,0 +1,334 @@
+@charset "UTF-8";
+/* A Modern CSS Reset */
+/* https://coliss.com/articles/build-websites/operation/css/css-reset-for-modern-browser.html */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+[role=list],
+ol[role=list],
+li {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-family: "Noto Sans JP", "Avenir", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+/* 共通ヘッダー */
+.st-Header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* フッター */
+.st-footer {
+  background-color: #eee;
+  color: #000;
+  text-align: center;
+}
+
+.st-footer_Inner {
+  padding: 48px 12px;
+}
+
+/* 囲いなど */
+.sw-Content {
+  margin: 80px 0 0;
+}
+
+/* 見出し、テキスト */
+.sw-Heading2 {
+  font-size: 3.2rem;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding-bottom: 62px;
+  position: relative;
+}
+
+.sw-Heading3 {
+  font-size: 2.4rem;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  position: relative;
+  background: #F2F2F2;
+  padding: 16px 32px 16px 64px;
+  margin-top: 80px;
+}
+
+.sw-Text {
+  margin-top: 56px;
+  font-size: 1.8rem;
+  line-height: 2;
+  font-weight: 500;
+  text-align: center;
+}
+.sw-Text:first-child {
+  margin-top: 0;
+}
+
+.sw-Link {
+  color: blue;
+  border-bottom: solid 1px blue;
+}
+
+.sw-Notice {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #000;
+  margin-top: 24px;
+}
+
+/* ボタン */
+.sw-Btn {
+  background-color: blue;
+  border: 2px solid #1C1C1C;
+  border-radius: 4px;
+  position: relative;
+  letter-spacing: 0.1em;
+  display: block;
+  margin: 0 auto;
+  font-weight: 700;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sw-Btn::after {
+  position: absolute;
+  content: "";
+  top: 18px;
+  right: 17px;
+  width: 8px;
+  height: 8px;
+  background-image: url("/wp-content/themes/pokeigp/assets/images/common/ic_arrow_right.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sw-Btn:hover {
+  background-color: #fff;
+}
+
+.sw-Btn-disable {
+  background-color: #CECECE;
+  border: none;
+  color: #fff;
+  pointer-events: none;
+}
+.sw-Btn-disable::after {
+  content: none;
+}
+
+/* その他 */
+.sw-PageTop {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}
+
+.sw-PageTop a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid #CECECE;
+  padding-top: 16px;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.sw-PageTop a::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  left: 0;
+  top: 16px;
+  margin: auto;
+  width: 16px;
+  height: 16px;
+}
+
+.sw-PageTop a:hover {
+  border: 4px solid #1C1C1C;
+  background-color: #F2F2F2;
+}
+
+.pc-only {
+  display: block;
+}
+
+.sp-only {
+  display: none;
+}
+
+.pc-only-ib {
+  display: inline-block;
+}
+
+.sp-only-ib {
+  display: none;
+}
+
+/*
+Theme Name: blog
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .st-Header {
+    width: 100%;
+    height: 50px;
+  }
+  .st-footer_Inner {
+    padding: 40px 8px;
+  }
+  .sw-Content {
+    margin: 50px 0 0;
+  }
+  .sw-Heading2 {
+    font-size: 1.8rem;
+    padding-bottom: 24px;
+    letter-spacing: 0;
+  }
+  .sw-Heading3 {
+    font-size: 1.6rem;
+    letter-spacing: 0;
+    margin-top: 40px;
+    padding: 14px 20px 14px 40px;
+  }
+  .sw-Text {
+    font-size: 1.4rem;
+    margin-top: 8px;
+  }
+  .sw-Notice {
+    font-size: 1rem;
+    margin-top: 13px;
+  }
+  .sw-PageTop {
+    width: 48px;
+    height: 48px;
+  }
+  .sw-PageTop a {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+    padding-top: 10px;
+  }
+  .sw-PageTop a::before {
+    width: 9.6px;
+    height: 9.6px;
+    top: 8px;
+  }
+  .pc-only {
+    display: none;
+  }
+  .sp-only {
+    display: block;
+  }
+  .pc-only-ib {
+    display: none;
+  }
+  .sp-only-ib {
+    display: inline-block;
+  }
+}
+/*# sourceMappingURL=../maps/common/common.css.map */

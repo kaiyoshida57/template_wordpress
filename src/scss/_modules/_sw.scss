@@ -1,0 +1,190 @@
+// サイト共通の汎用的Module
+
+
+/* 囲いなど */
+.sw-Content {
+  margin: 80px 0 0;
+  @media screen and (max-width: 768px) {
+    margin: 50px 0 0;
+  }
+}
+
+/* 見出し、テキスト */
+.sw-Heading2 {
+  font-size: 3.2rem;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-align: center;
+  padding-bottom: 62px;
+  position: relative;
+  @media screen and (max-width: 768px) {
+    font-size: 1.8rem;
+    padding-bottom: 24px;
+    letter-spacing: 0;
+  }
+}
+
+.sw-Heading3 {
+  font-size: 2.4rem;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: .1em;
+  position: relative;
+  background: #F2F2F2;
+  padding: 16px 32px 16px 64px;
+  margin-top: 80px;
+  @media screen and (max-width: 768px) {
+    font-size: 1.6rem;
+    letter-spacing: 0;
+    margin-top: 40px;
+    padding: 14px 20px 14px 40px;
+  }
+}
+
+.sw-Text {
+  margin-top: 56px;
+  font-size: 1.8rem;
+  line-height: 2;
+  font-weight: 500;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    font-size: 1.4rem;
+    margin-top: 8px;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+}
+.sw-Link {
+  color: blue;
+  border-bottom: solid 1px blue;
+}
+.sw-Notice {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #000;
+  margin-top: 24px;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+    margin-top: 13px;
+  }
+}
+/* ボタン */
+.sw-Btn {
+  background-color: blue;
+  border: 2px solid #1C1C1C;
+  border-radius: 4px;
+  position: relative;
+  letter-spacing: .1em;
+  display: block;
+  margin: 0 auto;
+  font-weight: 700;
+  transition: .3s;
+}
+.sw-Btn::after {
+  position: absolute;
+  content: "";
+  top: 18px;
+  right: 17px;
+  width: 8px;
+  height: 8px;
+  background-image: url("/wp-content/themes/pokeigp/assets/images/common/ic_arrow_right.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.sw-Btn:hover {
+  background-color: #fff;
+}
+.sw-Btn-disable {
+  background-color: #CECECE;
+  border: none;
+  color: #fff;
+  pointer-events: none;
+  &::after {
+    content: none;
+  }
+}
+
+
+/* その他 */
+.sw-PageTop {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  @media screen and (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
+}
+.sw-PageTop a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid #CECECE;
+  padding-top: 16px;
+  position: relative;
+  transition: .3s;
+  font-size: 1.4rem;
+  font-weight: 700;
+  @media screen and (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+    padding-top: 10px;
+  }
+}
+.sw-PageTop a::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  left: 0;
+  top: 16px;
+  margin: auto;
+  width: 16px;
+  height: 16px;
+  // background-image: url("/wp-content/themes/pokeigp/assets/images/common/ic_arrow_top.svg");
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  @media screen and (max-width: 768px) {
+    width: 9.6px;
+    height: 9.6px;
+    top: 8px;
+  }
+}
+.sw-PageTop a:hover {
+  border: 4px solid #1C1C1C;
+  background-color: #F2F2F2;
+}
+
+.pc-only {
+  display: block;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+.sp-only {
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+}
+// br向け
+.pc-only-ib {
+  display: inline-block;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+.sp-only-ib {
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: inline-block;
+  }
+}

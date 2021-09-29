@@ -20,12 +20,16 @@ const imageminSvgo = require("imagemin-svgo");
 const srcPath = {
   'scss': './src/scss/**/*.scss',
   'html': './wp-content/themes/blog/*.php',
+  // 'html': './wp-content/themes/blog/*.html', // 静的環境の場合
   'img': './src/images/**/*'
 };
 
 const distPath = {
   'css': './wp-content/themes/blog/common/css/',
   'img':  './wp-content/themes/blog/common/images/'
+  // 'css': './wp-content/themes/blog/assets/css/',
+  // 'img':  './wp-content/themes/blog/assets/images/',
+  // 'html':  './wp-content/themes/blog/'
 };
 
 /**
@@ -98,7 +102,8 @@ const browserSyncFunc = (done) => {
 const browserSyncOption = {
   proxy: 'http://kai555_wp.webcrow.local/', // 動的ローカルURLなど
   files: './wp-content/themes/blog/*.php', // 監視するファイル
-  reloadOnRestart: true
+  reloadOnRestart: true,
+  // server: './wp-content/themes/blog/' // 静的(index.html)の場合はこれだけ
 }
 
 /**

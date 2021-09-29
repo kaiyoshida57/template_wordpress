@@ -1,0 +1,1 @@
+{"version":3,"sources":["top/top.scss","_modules/_variables.scss","top/top.css"],"names":[],"mappings":"AAIA;EACE,cCJS;ACCX","file":"top/top.css","sourcesContent":["@charset \"UTF-8\";\n\n@use '../_modules/_variables' as var;\n\n.top_Title {\n  color: var.$baseBlue;\n}\n","// color\n$baseBlue: #3282c9;\n",".top_Title {\n  color: #3282c9;\n}"]}

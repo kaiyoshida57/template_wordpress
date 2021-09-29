@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+@use '../_modules/_variables' as var;
+
+.top_Title {
+  color: var.$baseBlue;
+}
