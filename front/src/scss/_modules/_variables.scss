@@ -1,2 +1,12 @@
 // color
 $baseBlue: #3282c9;
+
+// path (下がWP組み込み後用)
+// $imgPath: '/assets/images/';
+$imgPath: '/wp-content/themes/blog/assets/images/'; //wp組み込み用
+
+//使い方： url(#{var.$imgPath}common/hoge.jpg);
+
+// breakpoints
+$breakPc: 768px;
+$breakSp: 767px;

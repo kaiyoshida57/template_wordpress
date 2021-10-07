@@ -47,7 +47,12 @@ const cssSass = () => {
       }))
     .pipe(sass({ outputStyle: 'expanded' })) //指定できるキー expanded compressed
     .pipe(autoprefixer(TARGET_BROWSERS))
-    .pipe(postcss([mqpacker()]))
+    .pipe(postcss([mqpacker({
+      // max-widthで降順
+      sort: function (a, b) {
+        return b.localeCompare(a, undefined, {numeric: true});
+      }
+    })]))
     .pipe(gulp.dest(distPath.css, { sourcemaps: './maps' })) // mapコンパイル先
     .pipe(browserSync.stream()) // ページ全体リロードを防ぐ
     //   message: 'Sass compiled!',

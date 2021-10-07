@@ -1,5 +1,7 @@
 // Header,Footerなどのサイト共通の構造的Module
 
+@use './variables' as var;
+
 /* 共通ヘッダー */
 .st-Header {
   display: flex;
