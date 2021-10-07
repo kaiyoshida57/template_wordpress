@@ -19,13 +19,17 @@ const imageminSvgo = require("imagemin-svgo");
 
 const srcPath = {
   'scss': './src/scss/**/*.scss',
-  'html': './wp-content/themes/blog/*.php',
+  // 'html': '../wp/wp-content/themes/blog/*.php',
+  'html': '../wp/wp-content/themes/blog/*.html', // 静的環境の場合
   'img': './src/images/**/*'
 };
 
 const distPath = {
-  'css': './wp-content/themes/blog/common/css/',
-  'img':  './wp-content/themes/blog/common/images/'
+  'css': '../wp/wp-content/themes/blog/common/css/',
+  'img':  '../wp/wp-content/themes/blog/common/images/'
+  // 'css': '../wp/wp-content/themes/blog/assets/css/',
+  // 'img':  '../wp/wp-content/themes/blog/assets/images/',
+  // 'html':  '../wp/wp-content/themes/blog/'
 };
 
 /**
@@ -43,7 +47,12 @@ const cssSass = () => {
       }))
     .pipe(sass({ outputStyle: 'expanded' })) //指定できるキー expanded compressed
     .pipe(autoprefixer(TARGET_BROWSERS))
-    .pipe(postcss([mqpacker()]))
+    .pipe(postcss([mqpacker({
+      // max-widthで降順
+      sort: function (a, b) {
+        return b.localeCompare(a, undefined, {numeric: true});
+      }
+    })]))
     .pipe(gulp.dest(distPath.css, { sourcemaps: './maps' })) // mapコンパイル先
     .pipe(browserSync.stream()) // ページ全体リロードを防ぐ
     //   message: 'Sass compiled!',
@@ -97,8 +106,9 @@ const browserSyncFunc = (done) => {
 
 const browserSyncOption = {
   proxy: 'http://kai555_wp.webcrow.local/', // 動的ローカルURLなど
-  files: './wp-content/themes/blog/*.php', // 監視するファイル
-  reloadOnRestart: true
+  files: '../wp/wp-content/themes/blog/*.php', // 監視するファイル
+  reloadOnRestart: true,
+  // server: '../wp/wp-content/themes/blog/' // 静的(index.html)の場合はこれだけ
 }
 
 /**

@@ -53,6 +53,12 @@ h1 span {
 Theme Name: blog
 */
 
+@media screen and (max-width: 768px) {
+  h1 {
+    color: darkgreen;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -66,12 +72,6 @@ Theme Name: blog
     -webkit-transition-duration: 0.01ms !important;
             transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  h1 {
-    color: darkgreen;
   }
 }
 /*# sourceMappingURL=maps/style.css.map */
