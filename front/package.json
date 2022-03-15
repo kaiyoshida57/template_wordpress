@@ -13,9 +13,13 @@
     "imagemin-svgo": "^9.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/preset-env": "^7.4.3",
+    "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.14",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-changed": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^7.1.0",
@@ -27,10 +31,13 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svgmin": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^1.0.4",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpeg-recompress": "^7.0.0",
     "imagemin-pngquant": "^9.0.2",
-    "jshint": "^2.13.0"
+    "jshint": "^2.13.0",
+    "webpack": "^4.30.0",
+    "webpack-stream": "^5.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

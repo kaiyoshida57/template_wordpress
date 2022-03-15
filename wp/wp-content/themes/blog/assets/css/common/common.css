@@ -14,11 +14,15 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 figure,
+figcaption,
 blockquote,
 dl,
-dd {
+dd,
+dt {
   margin: 0;
 }
 
@@ -67,11 +71,27 @@ button,
 textarea,
 select {
   font: inherit;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 a {
   text-decoration: none;
 }
+/* 使い方：
+.hoge {
+	font-size: 12px;
+	@include var.responsive(md) {
+		font-size: 14px;
+	}
+}
+*/
 /* 共通ヘッダー */
 .st-Header {
   display: -webkit-box;
@@ -99,7 +119,7 @@ a {
 
 /* 囲いなど */
 .sw-Content {
-  margin: 80px 0 0;
+  margin: 50px 0 0;
 }
 
 /* 見出し、テキスト */
@@ -168,7 +188,7 @@ a {
   right: 17px;
   width: 8px;
   height: 8px;
-  background-image: url("/wp-content/themes/pokeigp/assets/images/common/ic_arrow_right.svg");
+  background-image: url("/wp-content/themes/blog/assets/images/common/ic_arrow_right.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -235,6 +255,271 @@ a {
   background-color: #F2F2F2;
 }
 
+/* 便利class */
+.mt-2 {
+  margin-top: 2px;
+}
+
+.mt-3 {
+  margin-top: 3px;
+}
+
+.mt-4 {
+  margin-top: 4px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mt-6 {
+  margin-top: 6px;
+}
+
+.mt-7 {
+  margin-top: 7px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-9 {
+  margin-top: 9px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-11 {
+  margin-top: 11px;
+}
+
+.mt-12 {
+  margin-top: 12px;
+}
+
+.mt-13 {
+  margin-top: 13px;
+}
+
+.mt-14 {
+  margin-top: 14px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-17 {
+  margin-top: 17px;
+}
+
+.mt-18 {
+  margin-top: 18px;
+}
+
+.mt-19 {
+  margin-top: 19px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-21 {
+  margin-top: 21px;
+}
+
+.mt-22 {
+  margin-top: 22px;
+}
+
+.mt-23 {
+  margin-top: 23px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.mt-26 {
+  margin-top: 26px;
+}
+
+.mt-27 {
+  margin-top: 27px;
+}
+
+.mt-28 {
+  margin-top: 28px;
+}
+
+.mt-29 {
+  margin-top: 29px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-32 {
+  margin-top: 32px;
+}
+
+.mt-35 {
+  margin-top: 35px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
+
+.ml-2 {
+  margin-left: 2px;
+}
+
+.ml-3 {
+  margin-left: 3px;
+}
+
+.ml-4 {
+  margin-left: 4px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.ml-6 {
+  margin-left: 6px;
+}
+
+.ml-7 {
+  margin-left: 7px;
+}
+
+.ml-8 {
+  margin-left: 8px;
+}
+
+.ml-9 {
+  margin-left: 9px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.ml-11 {
+  margin-left: 11px;
+}
+
+.ml-12 {
+  margin-left: 12px;
+}
+
+.ml-13 {
+  margin-left: 13px;
+}
+
+.ml-14 {
+  margin-left: 14px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+.ml-16 {
+  margin-left: 16px;
+}
+
+.ml-17 {
+  margin-left: 17px;
+}
+
+.ml-18 {
+  margin-left: 18px;
+}
+
+.ml-19 {
+  margin-left: 19px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.ml-21 {
+  margin-left: 21px;
+}
+
+.ml-22 {
+  margin-left: 22px;
+}
+
+.ml-23 {
+  margin-left: 23px;
+}
+
+.ml-24 {
+  margin-left: 24px;
+}
+
+.ml-25 {
+  margin-left: 25px;
+}
+
+.ml-26 {
+  margin-left: 26px;
+}
+
+.ml-27 {
+  margin-left: 27px;
+}
+
+.ml-28 {
+  margin-left: 28px;
+}
+
+.ml-29 {
+  margin-left: 29px;
+}
+
+.ml-30 {
+  margin-left: 30px;
+}
+
+.ml-32 {
+  margin-left: 32px;
+}
+
+.ml-35 {
+  margin-left: 35px;
+}
+
+.ml-40 {
+  margin-left: 40px;
+}
+
+.ml-48 {
+  margin-left: 48px;
+}
+
 .pc-only {
   display: block;
 }
@@ -255,21 +540,9 @@ a {
 Theme Name: blog
 */
 
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-*::before,
-*::after {
-    -webkit-animation-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
-    -webkit-transition-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+@media screen and (min-width: 768px) {
+  .sw-Content {
+    margin: 80px 0 0;
   }
 }
 
@@ -280,9 +553,6 @@ Theme Name: blog
   }
   .st-footer_Inner {
     padding: 40px 8px;
-  }
-  .sw-Content {
-    margin: 50px 0 0;
   }
   .sw-Heading2 {
     font-size: 1.8rem;
@@ -329,6 +599,24 @@ Theme Name: blog
   }
   .sp-only-ib {
     display: inline-block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 /*# sourceMappingURL=../maps/common/common.css.map */

@@ -1,3 +1,12 @@
+@charset "UTF-8";
+/* 使い方：
+.hoge {
+	font-size: 12px;
+	@include var.responsive(md) {
+		font-size: 14px;
+	}
+}
+*/
 .top_Title {
   color: #3282c9;
 }

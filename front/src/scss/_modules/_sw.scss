@@ -4,9 +4,9 @@
 
 /* 囲いなど */
 .sw-Content {
-  margin: 80px 0 0;
-  @media screen and (max-width: 768px) {
-    margin: 50px 0 0;
+  margin: 50px 0 0;
+	@include var.responsive(md) {
+    margin: 80px 0 0;
   }
 }
 
