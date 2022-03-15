@@ -3,3 +3,38 @@ $baseBlue: #3282c9;
 $baseOrange: #D46A00;
 $baseGrey: #777;
 $baseRed: #d40000;
+
+// path (下がWP組み込み後用)
+// $imgPath: '/assets/images/';
+$imgPath: '/wp-content/themes/blog/assets/images/'; //wp組み込み用
+
+//使い方： url(#{var.$imgPath}common/hoge.jpg);
+
+// breakpoints
+$breakpoints: (
+	'sm': (min-width: 640px)
+	'md': (min-width: 768px),
+	'lg': (min-width: 1024px),
+	'xl': (min-width: 1280px),
+) !default;
+
+@mixin responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // マップ型で定義されていない値が呼び出された時はエラーを返す
+  @else {
+    @error "指定されたブレークポイントは定義されていません。" + "指定できるブレークポイントは次のとおりです。 -> #{map-keys($breakpoints)}";
+  }
+}
+/* 使い方：
+.hoge {
+	font-size: 12px;
+	@include var.responsive(md) {
+		font-size: 14px;
+	}
+}
+*/
