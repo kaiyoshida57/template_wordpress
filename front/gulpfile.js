@@ -9,6 +9,15 @@ const autoprefixer = require('gulp-autoprefixer');
 const postcss = require("gulp-postcss"); // css-mqpackerを使うために必要
 const mqpacker = require('css-mqpacker'); // メディアクエリをまとめる
 
+// JS
+const babel = require("gulp-babel");
+const uglify = require("gulp-uglify-es").default; //ES6の圧縮用
+const webpackStream = require("webpack-stream");
+const webpack = require("webpack");
+const webpackConfig = require("./webpack.config");
+// const eslint = require('gulp-eslint');
+
+
 // image-min
 const imagemin = require("gulp-imagemin");
 const imageminMozjpeg = require("imagemin-mozjpeg");
@@ -21,12 +30,14 @@ const srcPath = {
   'scss': './src/scss/**/*.scss',
   // 'html': '../wp/wp-content/themes/blog/*.php',
   'html': '../wp/wp-content/themes/blog/*.html', // 静的環境の場合
+	'js': "./src/js/**/*.js",
   'img': './src/images/**/*'
 };
 
 const distPath = {
   'css': '../wp/wp-content/themes/blog/common/css/',
-  'img':  '../wp/wp-content/themes/blog/common/images/'
+  'img':  '../wp/wp-content/themes/blog/common/images/',
+	'js': "../wp/wp-content/themes/blog/common/js/",
   // 'css': '../wp/wp-content/themes/blog/assets/css/',
   // 'img':  '../wp/wp-content/themes/blog/assets/images/',
   // 'html':  '../wp/wp-content/themes/blog/'
@@ -66,6 +77,24 @@ const TARGET_BROWSERS = [
   'ie >= 11'
 ];
 
+/**
+ * JS
+ */
+// eslint処理
+// const jsLintFunc = () => {
+// 	return gulp.src(['src/**/*.js','!node_modules/**'])
+// 		.pipe(eslint({ useEslintrc: true, fix: true }))
+// 		.pipe(eslint.format()) // ターミナルにログ出力
+// 		// .pipe(eslint.failAfterError()) //処理を止めてエラー出力
+// }
+
+const jsFunc = () => {
+	return gulp.src(srcPath.js)
+    .pipe(webpackStream(webpackConfig, webpack))
+    .pipe(babel())
+    .pipe(uglify({}))
+    .pipe(gulp.dest(distPath.js)) // mapコンパイル先
+}
 
 /**
  * 画像圧縮
@@ -127,6 +156,7 @@ const browserSyncReload = (done) => {
  */
 const watchFiles = () => {
   gulp.watch(srcPath.scss, gulp.series(cssSass))
+  gulp.watch(srcPath.js, gulp.series(jsFunc))
   gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
   gulp.watch(srcPath.img, gulp.series(imgImagemin, browserSyncReload))
 }

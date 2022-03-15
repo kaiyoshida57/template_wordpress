@@ -1,15 +1,39 @@
+@charset "UTF-8";
 /* A Modern CSS Reset */
 /* https://coliss.com/articles/build-websites/operation/css/css-reset-for-modern-browser.html */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button,
+input,
+select,
+figure,
+blockquote,
+div,
+dd,
+dl,
+dt,
+table,
+td,
+th {
   margin: 0;
 }
 
-ul[role=list], ol[role=list] {
+ul[role=list],
+ol[role=list] {
   list-style: none;
 }
 
@@ -21,6 +45,11 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
 }
 
 a:not([class]) {
@@ -28,14 +57,51 @@ a:not([class]) {
           text-decoration-skip-ink: auto;
 }
 
-img, picture {
+small {
+  font-size: 10px;
+}
+
+img,
+picture {
   max-width: 100%;
   display: block;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
+
+button {
+  background: initial;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 0;
+}
+
+address {
+  font-style: normal;
+}
+/* 使い方：
+.hoge {
+	font-size: 12px;
+	@include var.responsive(md) {
+		font-size: 14px;
+	}
+}
+*/
 h1 {
   color: green;
 }
@@ -64,7 +130,9 @@ Theme Name: blog
     scroll-behavior: auto;
   }
 
-  *, *::before, *::after {
+  *,
+*::before,
+*::after {
     -webkit-animation-duration: 0.01ms !important;
             animation-duration: 0.01ms !important;
     -webkit-animation-iteration-count: 1 !important;

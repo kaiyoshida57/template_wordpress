@@ -1,16 +1,17 @@
 # WordPress template
 WordPress site template
-HTML + Sass + Browser-Sync
-# use version:
+PHP + Sass + Webpack + Babel
+# Requirement version
 gulp v4.0.2
 node v12.13.1
 npm v6.12.1
-# install package
-$ npm init -y
+# Usage
+npm init -y
 
-$ npm i
-# start local server and watch
-$ npx gulp
+npm i
+## start local server and watch
+npx gulp
 
 # other
+新規にJSファイルを追加するときは、webpack.config.jsに記述してください。
 ローカル環境はXampp(Mamp)で動かす想定です
