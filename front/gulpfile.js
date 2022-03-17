@@ -15,7 +15,7 @@ const uglify = require("gulp-uglify-es").default; //ES6の圧縮用
 const webpackStream = require("webpack-stream");
 const webpack = require("webpack");
 const webpackConfig = require("./webpack.config");
-// const eslint = require('gulp-eslint');
+const eslint = require('gulp-eslint');
 
 
 // image-min
@@ -40,6 +40,7 @@ const distPath = {
 	'js': "../wp/wp-content/themes/blog/common/js/",
   // 'css': '../wp/wp-content/themes/blog/assets/css/',
   // 'img':  '../wp/wp-content/themes/blog/assets/images/',
+  // 'js':  '../wp/wp-content/themes/blog/assets/js/',
   // 'html':  '../wp/wp-content/themes/blog/'
 };
 
@@ -81,12 +82,12 @@ const TARGET_BROWSERS = [
  * JS
  */
 // eslint処理
-// const jsLintFunc = () => {
-// 	return gulp.src(['src/**/*.js','!node_modules/**'])
-// 		.pipe(eslint({ useEslintrc: true, fix: true }))
-// 		.pipe(eslint.format()) // ターミナルにログ出力
-// 		// .pipe(eslint.failAfterError()) //処理を止めてエラー出力
-// }
+const jsLintFunc = () => {
+	return gulp.src(['src/**/*.js','!node_modules/**'])
+		.pipe(eslint({ useEslintrc: true, fix: true }))
+		.pipe(eslint.format()) // ターミナルにログ出力
+		// .pipe(eslint.failAfterError()) //処理を止めてエラー出力
+}
 
 const jsFunc = () => {
 	return gulp.src(srcPath.js)
@@ -105,7 +106,7 @@ return gulp.src(srcPath.img)
     imagemin(
       [
         imageminMozjpeg({
-          quality: 80
+          quality: 85
         }),
         imageminPngquant(),
         imageminSvgo(),
@@ -156,6 +157,7 @@ const browserSyncReload = (done) => {
  */
 const watchFiles = () => {
   gulp.watch(srcPath.scss, gulp.series(cssSass))
+  gulp.watch(srcPath.js, gulp.series(jsLintFunc))
   gulp.watch(srcPath.js, gulp.series(jsFunc))
   gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
   gulp.watch(srcPath.img, gulp.series(imgImagemin, browserSyncReload))
@@ -166,6 +168,6 @@ const watchFiles = () => {
  * parallelは並列で実行
  */
 exports.default = gulp.series(
-  gulp.parallel(html, cssSass, imgImagemin),
+  gulp.parallel(html, cssSass, imgImagemin, jsLintFunc, jsFunc),
   gulp.parallel(watchFiles, browserSyncFunc)
 );

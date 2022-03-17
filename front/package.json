@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "WordPress site",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "css-mqpacker": "^7.0.0",
     "del": "^6.0.0",
@@ -17,11 +20,13 @@
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.14",
+    "eslint": "^7.26.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-changed": "^4.0.2",
     "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-jshint": "^2.1.0",
     "gulp-plumber": "^1.2.1",
@@ -38,9 +43,6 @@
     "jshint": "^2.13.0",
     "webpack": "^4.30.0",
     "webpack-stream": "^5.2.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
