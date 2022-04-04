@@ -1,10 +1,11 @@
 module.exports = {
+	root: true,
 	env: {
 		browser: true,
 		commonjs: true,
 		es2020: true,
 	},
-	extends: ['eslint:recommended'],
+	extends: ['eslint:recommended', 'prettier'],
 	parserOptions: {
 		ecmaVersion: 11,
 	},

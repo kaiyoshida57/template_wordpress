@@ -20,6 +20,7 @@ or
 npx gulp
 
 # Other
+git commit時のフックで、prettierがJSファイルを対象に動きます。
 新規にJSファイルを追加するときは、webpack.config.jsに記述してください。
 ローカル環境は`Xampp(Mamp)`で動かす想定です。
 コードの体裁を保つため、`EditorConfig`をエディタに入れてください。

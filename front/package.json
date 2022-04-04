@@ -4,7 +4,17 @@
   "description": "WordPress site",
   "main": "index.js",
 	"scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+    "format": "npx prettier --write **.js",
+    "lint": "npx eslint --fix **.js",
+    "fix": "npm run format && npm run lint",
+    "prepare": "npx husky install"
+  },
+	"lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "css-mqpacker": "^7.0.0",
@@ -21,6 +31,7 @@
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.14",
 		"eslint": "^7.26.0",
+		"eslint-config-prettier": "^8.3.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
@@ -37,10 +48,12 @@
     "gulp-svgmin": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^1.0.4",
+		"husky": "^6.0.0",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpeg-recompress": "^7.0.0",
     "imagemin-pngquant": "^9.0.2",
     "jshint": "^2.13.0",
+		"lint-staged": "^11.0.0",
     "webpack": "^4.30.0",
     "webpack-stream": "^5.2.1"
   },
