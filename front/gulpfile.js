@@ -17,11 +17,14 @@ const webpack = require("webpack");
 const webpackConfig = require("./webpack.config");
 const eslint = require('gulp-eslint');
 
-// image-min
+// Image
 const imagemin = require("gulp-imagemin");
 const imageminMozjpeg = require("imagemin-mozjpeg");
 const imageminPngquant = require("imagemin-pngquant");
 const imageminSvgo = require("imagemin-svgo");
+const webp = require('gulp-webp');
+const rename = require('gulp-rename'); //webp生成時のリネーム
+
 
 // 入出力するフォルダを指定
 
@@ -29,8 +32,10 @@ const srcPath = {
   'scss': './src/scss/**/*.scss',
   'html': '../wp/wp-content/themes/blog/*.php',
   // 'html': '../wp/wp-content/themes/blog/*.html', // 静的環境の場合
-  'js': "./src/js/**/*.js",
-  'img': './src/images/**/*'
+  'js': './src/js/**/*.js',
+  'img': './src/images/**/*',
+	'imgSrc': ['./src/img/**/*', '!./src/img/**/apple-t*', '!./src/img/**/favi*'],
+
 };
 
 const distPath = {
@@ -72,8 +77,8 @@ const cssSass = () => {
 
 //ベンダープレフィックスを付与する条件
 const TARGET_BROWSERS = [
-  'last 2 versions',
-  'ie >= 11'
+  'last 1 versions',
+  // 'ie >= 11'
 ];
 
 
@@ -101,6 +106,11 @@ const jsFunc = () => {
  */
 const imgImagemin = () => {
 return gulp.src(srcPath.img)
+	//jpg->webpじゃなく、jpg->jpg.webpの形に変換させる
+	.pipe(rename(function(path) {
+			path.basename += path.extname;
+	}))
+	.pipe(webp())
   .pipe(
     imagemin(
       [
@@ -134,10 +144,10 @@ const browserSyncFunc = (done) => {
 }
 
 const browserSyncOption = {
-  proxy: 'http://kai555_wp.webcrow.local/', // 動的ローカルURLなど
-  files: '../wp/wp-content/themes/blog/*.php', // 監視するファイル
-  reloadOnRestart: true,
-  // server: '../wp/wp-content/themes/blog/' // 静的(index.html)の場合はこれだけ
+  // proxy: 'http://kai555_wp.webcrow.local/', // 動的ローカルURLなど
+  // files: '../wp/wp-content/themes/blog/*.php', // 監視するファイル
+  // reloadOnRestart: true,
+  server: '../wp/wp-content/themes/blog/front-page.php' // 静的(index.html)の場合はこれだけ
 }
 
 /**

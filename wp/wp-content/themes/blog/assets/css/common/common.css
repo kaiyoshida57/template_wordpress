@@ -4,8 +4,7 @@
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body,
@@ -93,8 +92,6 @@ a {
 */
 /* 共通ヘッダー */
 .st-Header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 80px;
@@ -176,7 +173,6 @@ a {
   display: block;
   margin: 0 auto;
   font-weight: 700;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -218,21 +214,14 @@ a {
 .sw-PageTop a {
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background: #fff;
   border: 4px solid #CECECE;
   padding-top: 16px;
   position: relative;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   font-size: 1.4rem;
   font-weight: 700;
@@ -541,7 +530,7 @@ Theme Name: blog
 
 @media screen and (min-width: 768px) {
   .sw-Content {
-    margin: 80px 0 0;
+    margin: 80px 0 10px;
   }
 }
 
@@ -613,8 +602,7 @@ Theme Name: blog
             animation-duration: 0.01ms !important;
     -webkit-animation-iteration-count: 1 !important;
             animation-iteration-count: 1 !important;
-    -webkit-transition-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
