@@ -1,2 +1,5 @@
 console.log('common123');
-console.log('common456');
+const aaa = document.querySelectorAll('aaa');
+aaa.forEach(e => {
+	console.log(e);
+});
