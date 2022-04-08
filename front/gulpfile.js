@@ -34,7 +34,7 @@ const srcPath = {
   // 'html': '../wp/wp-content/themes/blog/*.html', // 静的環境の場合
   'js': './src/js/**/*.js',
   'img': './src/images/**/*',
-	'imgSrc': ['./src/img/**/*', '!./src/img/**/apple-t*', '!./src/img/**/favi*'],
+	'imgJpgPng': "./src/images/**/*.{jpg,jpeg,png}",
 
 };
 
@@ -106,11 +106,6 @@ const jsFunc = () => {
  */
 const imgImagemin = () => {
 return gulp.src(srcPath.img)
-	//jpg->webpじゃなく、jpg->jpg.webpの形に変換させる
-	.pipe(rename(function(path) {
-			path.basename += path.extname;
-	}))
-	.pipe(webp())
   .pipe(
     imagemin(
       [
@@ -126,6 +121,20 @@ return gulp.src(srcPath.img)
   )
   .pipe(gulp.dest(distPath.img))
 }
+
+/**
+ * webp変換
+ */
+const webpConvert = () => {
+	return gulp.src(srcPath.imgJpgPng)
+	//jpg->webpじゃなく、jpg->jpg.webpの形に変換させる
+	.pipe(rename(function(path) {
+		path.basename += path.extname;
+	}))
+	.pipe(webp())
+	.pipe(gulp.dest(distPath.img))
+}
+
 
 /**
  * html
@@ -144,10 +153,10 @@ const browserSyncFunc = (done) => {
 }
 
 const browserSyncOption = {
-  // proxy: 'http://kai555_wp.webcrow.local/', // 動的ローカルURLなど
+  // proxy: 'http://example.local/', // 動的ローカルURLなど
   // files: '../wp/wp-content/themes/blog/*.php', // 監視するファイル
   // reloadOnRestart: true,
-  server: '../wp/wp-content/themes/blog/front-page.php' // 静的(index.html)の場合はこれだけ
+  server: './wp/wp-content/themes/blog/front-page.php' // 静的(index.html)の場合はこれだけ
 }
 
 /**
@@ -170,6 +179,7 @@ const watchFiles = () => {
   gulp.watch(srcPath.js, gulp.series(jsFunc))
   gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
   gulp.watch(srcPath.img, gulp.series(imgImagemin, browserSyncReload))
+	gulp.watch(srcPath.imgJpgPng, gulp.series(webpConvert, browserSyncReload))
 }
 
 /**
@@ -177,6 +187,6 @@ const watchFiles = () => {
  * parallelは並列で実行
  */
 exports.default = gulp.series(
-  gulp.parallel(html, cssSass, imgImagemin, jsLintFunc, jsFunc),
+  gulp.parallel(html, cssSass, imgImagemin, webpConvert, jsLintFunc, jsFunc),
   gulp.parallel(watchFiles, browserSyncFunc)
 );
