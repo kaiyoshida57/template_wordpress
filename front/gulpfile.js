@@ -30,8 +30,8 @@ const rename = require('gulp-rename'); //webp生成時のリネーム
 
 const srcPath = {
   'scss': './src/scss/**/*.scss',
-  'html': '../wp/wp-content/themes/blog/*.php',
-  // 'html': '../wp/wp-content/themes/blog/*.html', // 静的環境の場合
+  'html': '../wp/wp-content/themes/blog/**/*.php',
+  // 'html': '../wp/wp-content/themes/blog/**/*.html', // 静的環境の場合
   'js': './src/js/**/*.js',
   'img': './src/images/**/*',
 	'imgJpgPng': "./src/images/**/*.{jpg,jpeg,png}",
@@ -156,7 +156,7 @@ const browserSyncOption = {
   // proxy: 'http://example.local/', // 動的ローカルURLなど
   // files: '../wp/wp-content/themes/blog/*.php', // 監視するファイル
   // reloadOnRestart: true,
-  server: './wp/wp-content/themes/blog/front-page.php' // 静的(index.html)の場合はこれだけ
+  server: '../wp/wp-content/themes/blog/front-page.php' // 静的(index.html)の場合はこれだけ
 }
 
 /**
@@ -174,7 +174,7 @@ const browserSyncReload = (done) => {
  * watch('監視するファイル',処理)
  */
 const watchFiles = () => {
-  gulp.watch(srcPath.scss, gulp.series(cssSass))
+  gulp.watch(srcPath.scss, gulp.series(cssSass, browserSyncReload))
 	gulp.watch(srcPath.js, gulp.series(jsLintFunc))
   gulp.watch(srcPath.js, gulp.series(jsFunc))
   gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))

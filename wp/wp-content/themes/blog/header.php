@@ -7,7 +7,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
   <header>
     <nav>
       <ul class="nav_list">
