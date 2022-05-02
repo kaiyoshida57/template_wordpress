@@ -1,6 +1,7 @@
 module.exports = {
 	root: true,
 	env: {
+		amd: true, //registers globals for define and require
 		node: true, // nodeの環境変数を追加
 		browser: true,
 		commonjs: true,

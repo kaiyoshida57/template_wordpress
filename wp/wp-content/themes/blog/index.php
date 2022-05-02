@@ -13,19 +13,22 @@ posts archive
 
     <h1><span>NEWS</span></h1>
     <section>
-      
-      <?php
-        if( have_posts() ) :
-          while ( have_posts() ) :
-      ?>
 
-            <h3><?php echo the_title(); ?></h3>
-            <a href="<?php echo get_permalink(); ?>">
+    <?php
+    if( have_posts() ) :
+      while ( have_posts() ) :
+        the_post();
+    ?>
 
-      <?php
-          endwhile;
-        endif;
-      ?>
+    <a href="<?php echo get_permalink(); ?>">
+      <h2><?php echo the_title(); ?></h2>
+    </a>
+
+    <?php endwhile; ?>
+    <?php else: ?>
+      投稿がありません。
+    <?php endif; ?>
+
     </section>
   </main>
 

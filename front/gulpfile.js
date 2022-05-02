@@ -28,8 +28,8 @@ const imageminSvgo = require("imagemin-svgo");
 
 const srcPath = {
   'scss': './src/scss/**/*.scss',
-  // 'html': '../wp/wp-content/themes/blog/*.php',
-  'html': '../wp/wp-content/themes/blog/*.html', // 静的環境の場合
+  // 'html': '../wp/wp-content/themes/blog/**/*.php',
+  'html': '../wp/wp-content/themes/blog/**/*.html', // 静的環境の場合
 	'js': "./src/js/**/*.js",
   'img': './src/images/**/*'
 };
@@ -136,7 +136,7 @@ const browserSyncFunc = (done) => {
 
 const browserSyncOption = {
   proxy: 'http://kai555_wp.webcrow.local/', // 動的ローカルURLなど
-  files: '../wp/wp-content/themes/blog/*.php', // 監視するファイル
+  files: '../wp/wp-content/themes/blog/**/*.php', // 監視するファイル
   reloadOnRestart: true,
   // server: '../wp/wp-content/themes/blog/' // 静的(index.html)の場合はこれだけ
 }
@@ -156,7 +156,7 @@ const browserSyncReload = (done) => {
  * watch('監視するファイル',処理)
  */
 const watchFiles = () => {
-  gulp.watch(srcPath.scss, gulp.series(cssSass))
+  gulp.watch(srcPath.scss, gulp.series(cssSass, browserSyncReload))
   gulp.watch(srcPath.js, gulp.series(jsLintFunc))
   gulp.watch(srcPath.js, gulp.series(jsFunc))
   gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
